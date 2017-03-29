@@ -1,12 +1,10 @@
 #include "Warrior.h"
+using namespace std;
 
-
-
-Warrior::Warrior(std::string name) : _name(name)
+Warrior::Warrior(string _name)
 {
+	this->name = _name;
 }
 
-
-Warrior::~Warrior()
-{
-}
+Warrior::Warrior() { }
+Warrior::~Warrior() { }

@@ -1,10 +1,9 @@
+#include "Actor.h"
 #include "Mage.h"
+using namespace std;
 
-Mage::Mage(std::string name) : _name(name)
+Mage::Mage(string _name)
 {
+	this->name = _name;
 }
-
-
-Mage::~Mage()
-{
-}
+Mage::~Mage() { }

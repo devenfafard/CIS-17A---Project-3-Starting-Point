@@ -1,12 +1,10 @@
 #include "Ranger.h"
+using namespace std;
 
-
-
-Ranger::Ranger(std::string name) : _name(name)
+Ranger::Ranger(string _name)
 {
+	this->name = _name;
 }
 
-
-Ranger::~Ranger()
-{
-}
+Ranger::Ranger() { }
+Ranger::~Ranger() { }

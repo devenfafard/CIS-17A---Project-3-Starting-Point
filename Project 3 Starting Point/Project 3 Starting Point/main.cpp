@@ -19,7 +19,7 @@ int main()
 	while (choice != 0) 
 	{
 		system("cls");
-		cout << "Now Managing " << guild->GetName() << endl << "****************************" << endl;
+		cout << "Now Managing " << guild->getName() << endl << "****************************" << endl;
 		cout << "1) Display Guild Information" << endl;
 		cout << "2) Add An Adventurer" << endl;
 		cout << "3) Attack!" << endl;
@@ -39,7 +39,7 @@ int main()
 void DisplayGuildInfo(const shared_ptr<Guild> guild)
 {
 	system("cls");
-	cout << guild->GetInfo();
+	cout << guild->getInfo();
 	system("pause");
 }
 

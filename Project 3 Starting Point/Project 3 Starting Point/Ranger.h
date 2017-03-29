@@ -1,14 +1,13 @@
-#pragma once
 #include <string>
-class Ranger
+#include "Actor.h"
+#pragma once
+
+class Ranger : public Actor
 {
-private:
-	std::string _name;
-public:
-	Ranger(std::string name);
-	~Ranger();
+	public:
+		Ranger(std::string _name);
+		Ranger();
+		~Ranger();
 
-	std::string GetName() const { return _name; }
-	std::string Attack() { return _name + " shoots arrows at his enemies!  PEW PEW PEW"; }
+		std::string attack() { return name + " shoots arrows at his enemies!  PEW PEW PEW"; }
 };
-

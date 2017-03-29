@@ -1,12 +1,10 @@
 #include "Paladin.h"
+using namespace std;
 
-
-
-Paladin::Paladin(std::string name) : _name(name)
+Paladin::Paladin(string _name)
 {
+	this->name = _name;
 }
 
-
-Paladin::~Paladin()
-{
-}
+Paladin::Paladin() { }
+Paladin::~Paladin() { }
