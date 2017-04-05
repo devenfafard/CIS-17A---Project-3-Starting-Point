@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <map>
 #include "Mage.h"
 #include "Paladin.h"
 #include "Ranger.h"
@@ -24,7 +25,7 @@ class Guild
 		~Guild();
 
 		string getName() const { return name; }
-		void AddNPC(string _name);
+		void AddNPC(Actor* _npc);
 
 		string getInfo();
 		/*string AttackWithMages();

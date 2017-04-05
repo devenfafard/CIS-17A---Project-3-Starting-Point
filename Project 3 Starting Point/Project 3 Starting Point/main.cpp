@@ -63,11 +63,26 @@ void AddAdventurer(const shared_ptr<Guild> guild)
 	cin >> choice;
 	switch (choice)
 	{
-	case 1: guild->AddMage(name); break;
-	case 2: guild->AddRanger(name); break;
-	case 3: guild->AddPaladin(name); break;	
-	case 4: guild->AddWarrior(name); break;
-	default: cout << "Invalid choice!"; break;
+		//TODO: fix this! 
+		case 1: 
+		{
+			auto charPtr = make_shared<Mage>(name);
+			guild->AddNPC(charPtr);
+			break;
+		}
+		case 2: 
+		{
+			guild->AddRanger(name); break; 
+		}
+		case 3: 
+		{
+			guild->AddPaladin(name); break;
+		}
+		case 4:
+		{
+			guild->AddWarrior(name); break;
+		}
+		default: cout << "Invalid choice!"; break;
 	}
 	system("pause");
 }

@@ -1,3 +1,6 @@
+#include <iostream>
+#include <memory>
+#include <iterator>
 #include "Guild.h"
 using namespace std;
 
@@ -7,22 +10,42 @@ Guild::Guild(string _name)
 }
 Guild::~Guild() { }
 
-void Guild::AddNPC(string _name)
+void Guild::AddNPC(Actor* _npc)
 {
-	auto charPtr = make_shared<Actor>(_name);
-	npcs.push_back(charPtr);
-
-	//charPtr->
+	//TODO: fix this 
+	npcs.push_back(_npc);
 }
 
 string Guild::getInfo()
 {
-	string output = "Your guild has: \n";	
+	string output = "Your guild has: \n";
+	int mageCount, rangerCount, warriorCount, paladinCount = 0;
 
-	output += _mages.size()		> 0 ? std::to_string(_mages.size()) + " mages\n" : "No mages!\n";
-	output += _rangers.size()	> 0 ? std::to_string(_rangers.size()) + " rangers\n" : "No rangers!\n";
-	output += _warriors.size()	> 0 ? std::to_string(_warriors.size()) + " warriors\n" : "No warriors!\n";
-	output += _paladins.size()	> 0 ? std::to_string(_paladins.size()) + " paladins\n" : "No paladins!\n";
+	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
+	{
+		if (dynamic_pointer_cast<Mage*>(*it) != nullptr)
+		{
+			mageCount++;
+		}
+		if (dynamic_pointer_cast<Ranger*>(*it) != nullptr)
+		{
+			rangerCount++;
+		}
+		if (dynamic_pointer_cast<Warrior*>(*it) != nullptr)
+		{
+			warriorCount++;
+		}
+		if (dynamic_pointer_cast<Paladin*>(*it) != nullptr)
+		{
+			paladinCount++;
+		}
+	}
+	
+	output += mageCount		> 0 ? std::to_string(mageCount) + " mages\n" : "No mages!\n";
+	output += rangerCount	> 0 ? std::to_string(rangerCount) + " rangers\n" : "No rangers!\n";
+	output += warriorCount	> 0 ? std::to_string(warriorCount) + " warriors\n" : "No warriors!\n";
+	output += paladinCount	> 0 ? std::to_string(paladinCount) + " paladins\n" : "No paladins!\n";
+
 	return output;
 }
 
