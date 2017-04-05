@@ -10,9 +10,8 @@ Guild::Guild(string _name)
 }
 Guild::~Guild() { }
 
-void Guild::AddNPC(Actor* _npc)
+void Guild::AddNPC(shared_ptr<Actor> _npc)
 {
-	//TODO: fix this 
 	npcs.push_back(_npc);
 }
 

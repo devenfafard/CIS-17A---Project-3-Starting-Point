@@ -25,7 +25,7 @@ class Guild
 		~Guild();
 
 		string getName() const { return name; }
-		void AddNPC(Actor* _npc);
+		void AddNPC(shared_ptr<Actor> _npc);
 
 		string getInfo();
 		/*string AttackWithMages();

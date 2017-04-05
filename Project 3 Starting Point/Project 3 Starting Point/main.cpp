@@ -62,8 +62,7 @@ void AddAdventurer(const shared_ptr<Guild> guild)
 	int choice = -1;
 	cin >> choice;
 	switch (choice)
-	{
-		//TODO: fix this! 
+	{ 
 		case 1: 
 		{
 			auto charPtr = make_shared<Mage>(name);
@@ -72,15 +71,21 @@ void AddAdventurer(const shared_ptr<Guild> guild)
 		}
 		case 2: 
 		{
-			guild->AddRanger(name); break; 
+			auto charPtr = make_shared<Ranger>(name);
+			guild->AddNPC(charPtr);
+			break;
 		}
 		case 3: 
 		{
-			guild->AddPaladin(name); break;
+			auto charPtr = make_shared<Paladin>(name);
+			guild->AddNPC(charPtr);
+			break;
 		}
 		case 4:
 		{
-			guild->AddWarrior(name); break;
+			auto charPtr = make_shared<Warrior>(name);
+			guild->AddNPC(charPtr);
+			break;
 		}
 		default: cout << "Invalid choice!"; break;
 	}
@@ -102,13 +107,14 @@ void Attack(const shared_ptr<Guild> guild)
 
 	switch (choice)
 	{
-	case 1: cout << guild->AttackWithMages() << endl; break;
-	case 2: cout << guild->AttackWithRangers() << endl; break;
-	case 3: cout << guild->AttackWithWarriors() << endl; break;
-	case 4: cout << guild->AttackWithPaladins() << endl; break;
-	case 5: cout << guild->AttackWithAllAdventurers() << endl; break;
-	default: cout << "You run away like a coward" << endl; break;
+		//TODO : implement this!
+		case 1: cout << guild->AttackWithMages() << endl; break;
+		case 2: cout << guild->AttackWithRangers() << endl; break;
+		case 3: cout << guild->AttackWithWarriors() << endl; break;
+		case 4: cout << guild->AttackWithPaladins() << endl; break;
+		case 5: cout << guild->AttackWithAllAdventurers() << endl; break;
+		default: cout << "You run away like a coward" << endl; break;
 	}
-	system("pause");
-	
+
+	system("pause");	
 }
