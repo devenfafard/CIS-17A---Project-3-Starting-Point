@@ -28,9 +28,9 @@ class Guild
 		void AddNPC(shared_ptr<Actor> _npc);
 
 		string getInfo();
-		/*string AttackWithMages();
-		string AttackWithPaladins();
-		string AttackWithRangers();
-		string AttackWithWarriors();*/
+		string attackWithMages();
+		string attackWithPaladins();
+		string attackWithRangers();
+		string attackWithWarriors();
 		string attackWithAllAdventurers();
 };

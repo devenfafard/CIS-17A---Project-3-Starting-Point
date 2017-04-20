@@ -18,23 +18,23 @@ void Guild::AddNPC(shared_ptr<Actor> _npc)
 string Guild::getInfo()
 {
 	string output = "Your guild has: \n";
-	int mageCount, rangerCount, warriorCount, paladinCount = 0;
+	int mageCount = rangerCount = warriorCount = paladinCount = 0;
 
 	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
 	{
-		if (dynamic_pointer_cast<Mage*>(*it) != nullptr)
+		if (dynamic_pointer_cast<Mage>(*it) != nullptr)
 		{
 			mageCount++;
 		}
-		if (dynamic_pointer_cast<Ranger*>(*it) != nullptr)
+		else if (dynamic_pointer_cast<Ranger>(*it) != nullptr)
 		{
 			rangerCount++;
 		}
-		if (dynamic_pointer_cast<Warrior*>(*it) != nullptr)
+		else if (dynamic_pointer_cast<Warrior>(*it) != nullptr)
 		{
 			warriorCount++;
 		}
-		if (dynamic_pointer_cast<Paladin*>(*it) != nullptr)
+		else if (dynamic_pointer_cast<Paladin>(*it) != nullptr)
 		{
 			paladinCount++;
 		}
@@ -44,6 +44,62 @@ string Guild::getInfo()
 	output += rangerCount	> 0 ? std::to_string(rangerCount) + " rangers\n" : "No rangers!\n";
 	output += warriorCount	> 0 ? std::to_string(warriorCount) + " warriors\n" : "No warriors!\n";
 	output += paladinCount	> 0 ? std::to_string(paladinCount) + " paladins\n" : "No paladins!\n";
+
+	return output;
+}
+
+string Guild::attackWithMages()
+{
+	string output;
+	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
+	{
+		if (dynamic_pointer_cast<Mage>(*it))
+		{
+			output += (*it)->attack();
+		}
+	}
+
+	return output;
+}
+
+string Guild::attackWithPaladins()
+{
+	string output;
+	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
+	{
+		if (dynamic_pointer_cast<Paladin>(*it))
+		{
+			output += (*it)->attack();
+		}
+	}
+
+	return output;
+}
+
+string Guild::attackWithRangers()
+{
+	string output;
+	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
+	{
+		if (dynamic_pointer_cast<Ranger>(*it))
+		{
+			output += (*it)->attack();
+		}
+	}
+
+	return output;
+}
+
+string Guild::attackWithWarriors()
+{
+	string output;
+	for (vector<shared_ptr<Actor>>::iterator it = npcs.begin(); it != npcs.end(); it++)
+	{
+		if (dynamic_pointer_cast<Warrior>(*it))
+		{
+			output += (*it)->attack();
+		}
+	}
 
 	return output;
 }
@@ -58,4 +114,6 @@ string Guild::attackWithAllAdventurers()
 			output += person->attack() + "\n";
 		}
 	}
+
+	return output;
 }

@@ -105,16 +105,15 @@ void Attack(const shared_ptr<Guild> guild)
 	int choice = -1;
 	cin >> choice;
 
-	/*switch (choice)
+	switch (choice)
 	{
-		//TODO : implement this!
-		case 1: cout << guild->AttackWithMages() << endl; break;
-		case 2: cout << guild->AttackWithRangers() << endl; break;
-		case 3: cout << guild->AttackWithWarriors() << endl; break;
-		case 4: cout << guild->AttackWithPaladins() << endl; break;
-		case 5: cout << guild->AttackWithAllAdventurers() << endl; break;
+		case 1: cout << guild->attackWithMages() << endl; break;
+		case 2: cout << guild->attackWithRangers() << endl; break;
+		case 3: cout << guild->attackWithWarriors() << endl; break;
+		case 4: cout << guild->attackWithPaladins() << endl; break;
+		case 5: cout << guild->attackWithAllAdventurers() << endl; break;
 		default: cout << "You run away like a coward" << endl; break;
-	}*/
+	}
 
 	system("pause");	
 }
